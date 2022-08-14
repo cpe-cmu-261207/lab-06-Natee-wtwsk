@@ -44,13 +44,13 @@ export default function Home() {
           style={{ maxWidth: "100px" }}
           type="number"
         />
-        <button class="btn btn-dark" onClick={() => genUsers()}>
+        <button className="btn btn-dark" onClick={() => genUsers()}>
           Generate
         </button>
       </div>
 
       {users.map((i) => (
-        <div className="border-bottom">
+        <div key={i.id} className="border-bottom">
           {/* main section */}
           <div className="d-flex align-items-center p-3" onClick={() => {
             i.toggle? i.toggle = false : i.toggle = true;
@@ -60,7 +60,7 @@ export default function Home() {
               src={i.picture.large}
               alt="/profile-placeholder.jpeg"
               width="90px"
-              class="rounded-circle me-4"
+              className="rounded-circle me-4"
             />
             <span className="text-center display-6 me-auto">{i.name.first+' '+i.name.last}</span>
             {i.toggle? <IconChevronUp /> : <IconChevronDown />}
